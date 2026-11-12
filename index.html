@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bavadesh Kumar — Software Developer & AI/ML Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@700;800;900&family=Caveat:wght@600;700&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="paper-texture">
+
+  <!-- Floating Audio & Quick Actions Bar -->
+  <header class="top-nav">
+    <div class="nav-left">
+      <span class="status-dot"></span>
+      <span class="status-text">AVAILABLE FOR ROLES • BENGALURU, IN</span>
+    </div>
+    <div class="nav-center">
+      <span class="badge-mono">PORTFOLIO // 2026 EDITION</span>
+    </div>
+    <div class="nav-right">
+      <button class="sound-toggle-btn" id="soundToggle" title="Toggle Sound Feedback">
+        <span class="sound-icon">🔊</span> <span class="sound-label">SFX: ON</span>
+      </button>
+      <a href="#contact" class="nav-cta-btn">GET IN TOUCH ↗</a>
+    </div>
+  </header>
+
+  <main class="page-container">
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+      <div class="hero-subhead">
+        <span class="subhead-tag">SOFTWARE DEVELOPER / AI & ML</span>
+        <span class="subhead-stars">✦ ✦ ✦</span>
+        <span class="subhead-year">2026</span>
+      </div>
+
+      <!-- MAIN BRUTALIST TITLE WITH EMBEDDED AVATAR DOODLE -->
+      <div class="hero-title-wrapper">
+        <h1 class="hero-title">
+          <span>PORT</span>
+          <div class="hero-avatar-doodle">
+            <div class="doodle-head">
+              <svg viewBox="0 0 100 100" class="doodle-svg" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Stylized Curly Hair & Face Doodle -->
+                <path d="M22 45 C15 35, 20 20, 35 18 C42 12, 58 12, 65 18 C80 20, 85 35, 78 45" stroke-width="4" fill="#111" />
+                <path d="M25 32 C20 25, 30 18, 38 22 C45 15, 55 15, 62 22 C70 18, 80 25, 75 32" stroke-width="3.5" />
+                <path d="M30 20 C35 14, 45 12, 50 18 C55 12, 65 14, 70 20" stroke-width="3" />
+                <!-- Curls -->
+                <circle cx="28" cy="28" r="5" fill="#111" />
+                <circle cx="42" cy="22" r="6" fill="#111" />
+                <circle cx="58" cy="22" r="6" fill="#111" />
+                <circle cx="72" cy="28" r="5" fill="#111" />
+                <circle cx="36" cy="34" r="5" fill="#111" />
+                <circle cx="64" cy="34" r="5" fill="#111" />
+                <circle cx="50" cy="30" r="5.5" fill="#111" />
+                <!-- Face outline -->
+                <path d="M28 42 C28 65, 38 78, 50 82 C62 78, 72 65, 72 42" stroke="#111" stroke-width="3.5" fill="#fdfbf7" />
+                <!-- Eyes -->
+                <ellipse cx="40" cy="50" rx="3.5" ry="2.5" fill="#111" />
+                <ellipse cx="60" cy="50" rx="3.5" ry="2.5" fill="#111" />
+                <!-- Eyebrows -->
+                <path d="M35 44 Q 40 42 45 44" stroke="#111" stroke-width="3" />
+                <path d="M55 44 Q 60 42 65 44" stroke="#111" stroke-width="3" />
+                <!-- Nose -->
+                <path d="M50 49 L 48 58 L 53 58" stroke="#111" stroke-width="2.5" />
+                <!-- Mustache / Smile -->
+                <path d="M42 64 Q 50 67 58 64" stroke="#111" stroke-width="2.5" />
+                <path d="M44 63 Q 50 62 56 63" stroke="#111" stroke-width="1.5" />
+                <!-- Earring -->
+                <circle cx="26" cy="54" r="2" stroke="#111" stroke-width="1.5" />
+              </svg>
+            </div>
+            <div class="doodle-annotation">
+              <svg class="hand-arrow" viewBox="0 0 50 40" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M 10 5 Q 25 10 30 28" stroke-linecap="round" />
+                <path d="M 22 26 L 30 28 L 32 20" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span class="handwritten-name">Bavadesh Kumar</span>
+            </div>
+          </div>
+          <span>FOLIO</span>
+        </h1>
+      </div>
+
+      <!-- GLYPH DIVIDER -->
+      <div class="glyph-divider">
+        <span class="glyph">✦</span>
+        <span class="glyph">✦</span>
+        <span class="glyph">♣</span>
+      </div>
+
+      <!-- UPPER 3-COLUMN CONTENT GRID -->
+      <div class="hero-bento-grid">
+
+        <!-- COLUMN 1: PHOTO WITH GRAPHIC CROP BOUNDING BOX -->
+        <div class="bento-col photo-col">
+          <div class="crop-bounding-box" id="cropBox">
+            <div class="crop-handle handle-tl"></div>
+            <div class="crop-handle handle-tr"></div>
+            <div class="crop-handle handle-bl"></div>
+            <div class="crop-handle handle-br"></div>
+            <div class="crop-tag">BAYANA #07 // SUIT</div>
+            
+            <div class="crop-image-container">
+              <img src="assets/bavadesh.jpg" alt="Bayana Reddy Venkata Bavadesh Kumar" class="crop-img">
+              <div class="crop-overlay-grid"></div>
+            </div>
+
+            <div class="crop-footer">
+              <span class="crop-coord">X: 2026 Y: 0800</span>
+              <span class="crop-status">RAW 100%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLUMN 2: BIO & EDUCATION -->
+        <div class="bento-col bio-col">
+          <h2 class="section-big-title">HELLO</h2>
+          
+          <div class="bio-intro">
+            <p class="bio-lead">Hi, I'm <strong>Bavadesh Kumar</strong>.</p>
+            <p class="bio-text">
+              Building intelligent, scalable software is more than code to me—it's how I solve complex real-world problems.
+            </p>
+            <p class="bio-text">
+              I am a <strong>B.Tech Computer Science and Engineering (AI & ML)</strong> student at <strong>Jain University</strong> (graduating 2029). I've engineered end-to-end full-stack platforms including <strong>Skill Passport</strong>—an AI-driven career and resume analytics system with role-matching algorithms and learning roadmaps.
+            </p>
+            <p class="bio-text">
+              Passionate about high-performance backend APIs, relational databases, AI integration (Google Gemini API), and microservices with Docker.
+            </p>
+          </div>
+
+          <div class="bio-section education-box">
+            <h3 class="box-title">EDUCATION</h3>
+            <div class="edu-item">
+              <div class="edu-degree">B.Tech in Computer Science and Engineering (AI & ML)</div>
+              <div class="edu-school">Jain University, Bengaluru</div>
+              <div class="edu-meta">
+                <span class="edu-tag">Expected 2029</span>
+                <span class="edu-tag highlight">Semester 1–2: 8.0 CGPA</span>
+              </div>
+              <div class="edu-scores">
+                <span>Class 12: <strong>96.2%</strong></span>
+                <span class="score-sep">•</span>
+                <span>Class 10: <strong>93%</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLUMN 3: SKILLS & EXPERIENCE -->
+        <div class="bento-col skills-col">
+          <!-- SKILLS BOX -->
+          <div class="skills-box">
+            <h3 class="box-title">SKILLS</h3>
+            
+            <div class="skills-category">
+              <span class="cat-label">CORE STACK</span>
+              <div class="app-icons-grid">
+                <!-- Python Badge -->
+                <div class="app-badge" data-tooltip="Python">
+                  <span class="app-code python-color">Py</span>
+                  <span class="app-name">Python</span>
+                </div>
+                <!-- FastAPI Badge -->
+                <div class="app-badge" data-tooltip="FastAPI">
+                  <span class="app-code fastapi-color">Fa</span>
+                  <span class="app-name">FastAPI</span>
+                </div>
+                <!-- Gemini AI Badge -->
+                <div class="app-badge" data-tooltip="Google Gemini AI">
+                  <span class="app-code gemini-color">Ai</span>
+                  <span class="app-name">Gemini</span>
+                </div>
+                <!-- Docker Badge -->
+                <div class="app-badge" data-tooltip="Docker">
+                  <span class="app-code docker-color">Dk</span>
+                  <span class="app-name">Docker</span>
+                </div>
+                <!-- SQLite / DB Badge -->
+                <div class="app-badge" data-tooltip="SQLite & SQLAlchemy">
+                  <span class="app-code sql-color">Sq</span>
+                  <span class="app-name">SQL</span>
+                </div>
+                <!-- JavaScript Badge -->
+                <div class="app-badge" data-tooltip="JavaScript">
+                  <span class="app-code js-color">JS</span>
+                  <span class="app-name">JavaScript</span>
+                </div>
+                <!-- Java Badge -->
+                <div class="app-badge" data-tooltip="Java">
+                  <span class="app-code java-color">Jv</span>
+                  <span class="app-name">Java</span>
+                </div>
+                <!-- Tailwind CSS Badge -->
+                <div class="app-badge" data-tooltip="Tailwind CSS">
+                  <span class="app-code tailwind-color">Tw</span>
+                  <span class="app-name">Tailwind</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="skills-tags-cloud">
+              <span class="tech-pill">REST APIs</span>
+              <span class="tech-pill">SQLAlchemy</span>
+              <span class="tech-pill">JWT Auth</span>
+              <span class="tech-pill">PyMuPDF</span>
+              <span class="tech-pill">C</span>
+              <span class="tech-pill">NLP Pipelines</span>
+              <span class="tech-pill">Automated Tests</span>
+            </div>
+          </div>
+
+          <!-- EXPERIENCE & RECOGNITION BOX -->
+          <div class="experience-box">
+            <h3 class="box-title">EXPERIENCE</h3>
+            
+            <div class="exp-item">
+              <div class="exp-header">
+                <span class="exp-role">Full-Stack AI Developer</span>
+                <span class="exp-years">2026</span>
+              </div>
+              <div class="exp-org">Skill Passport Platform</div>
+              <p class="exp-desc">
+                Architected 3-tier portal with JWT auth, resume NLP parser, and role-match insights using Google Gemini API.
+              </p>
+            </div>
+
+            <div class="exp-item">
+              <div class="exp-header">
+                <span class="exp-role">SIH — Qualified Participant</span>
+                <span class="exp-years">2026</span>
+              </div>
+              <div class="exp-org">Smart India Hackathon</div>
+              <p class="exp-desc">
+                Conceptualized, architected, and pitched an AI software solution qualified through national evaluation.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DRAMATIC RIPPED PAPER & BLACK ZONE SECTION -->
+    <section class="ripped-black-section" id="blackSection">
+      
+      <!-- TOP RIPPED PAPER EDGE (SVG) -->
+      <div class="torn-edge-top">
+        <svg class="torn-svg" viewBox="0 0 1440 90" preserveAspectRatio="none">
+          <path d="M0,0 L1440,0 L1440,36 
+            L1420,38 L1400,32 L1375,44 L1350,30 L1330,42 L1305,28 L1280,48 L1260,34 L1235,46 L1210,32 L1185,50 L1160,35 L1135,42 L1110,26 L1085,46 L1060,32 L1035,48 L1010,30 L985,45 L960,33 L935,52 L910,30 L885,44 L860,26 L835,48 L810,34 L785,52 L760,28 L735,45 L710,32 L685,49 L660,27 L635,44 L610,30 L585,54 L560,32 L535,46 L510,28 L485,50 L460,33 L435,48 L410,29 L385,53 L360,35 L335,46 L310,28 L285,52 L260,34 L235,48 L210,30 L185,49 L160,31 L135,45 L110,27 L85,46 L60,32 L35,44 L15,30 L0,38 Z" fill="#f4f3ef"/>
+        </svg>
+      </div>
+
+      <!-- BLACK CANVAS CONTENT -->
+      <div class="black-zone-canvas">
+
+        <!-- LAYER 1: INFINITE HORIZONTAL MARQUEE TICKER (BEHIND HEAD CUTOUT) -->
+        <div class="infinite-marquee-container">
+          <div class="marquee-track" id="marqueeTrack">
+            <span class="marquee-item">PORTFOLIO 2026 ✦ SOFTWARE DEVELOPER ✦ AI & ML ENGINEER ✦ FULL-STACK ARCHITECT ✦ JAIN UNIVERSITY ✦</span>
+            <span class="marquee-item">PORTFOLIO 2026 ✦ SOFTWARE DEVELOPER ✦ AI & ML ENGINEER ✦ FULL-STACK ARCHITECT ✦ JAIN UNIVERSITY ✦</span>
+          </div>
+          <!-- Second marquee row scrolling in reverse for depth -->
+          <div class="marquee-track reverse" id="marqueeTrackReverse">
+            <span class="marquee-item subtle">BAVADESH KUMAR ✦ FASTAPI ✦ GEMINI API ✦ DOCKER ✦ PYTHON ✦ SMART INDIA HACKATHON ✦</span>
+            <span class="marquee-item subtle">BAVADESH KUMAR ✦ FASTAPI ✦ GEMINI API ✦ DOCKER ✦ PYTHON ✦ SMART INDIA HACKATHON ✦</span>
+          </div>
+        </div>
+
+        <!-- LAYER 2: CENTRAL PORTRAIT WITH NEON RED OUTLINE (ON TOP OF MARQUEE) -->
+        <div class="portrait-cutout-stage" id="portraitStage">
+          <div class="neon-red-glow"></div>
+          
+          <div class="cutout-img-wrapper">
+            <img src="assets/bavadesh_cutout.png" alt="Bavadesh Kumar Portrait" class="cutout-portrait-img" id="cutoutImg">
+          </div>
+
+          <!-- Floating Badges Around Portrait -->
+          <div class="floating-tag tag-left">
+            <span class="tag-icon">⚡</span>
+            <span class="tag-title">AI & ML DEVELOPER</span>
+          </div>
+          <div class="floating-tag tag-right">
+            <span class="tag-icon">📍</span>
+            <span class="tag-title">BENGALURU, INDIA</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- BOTTOM RIPPED PAPER EDGE (SVG) -->
+      <div class="torn-edge-bottom">
+        <svg class="torn-svg" viewBox="0 0 1440 90" preserveAspectRatio="none">
+          <path d="M0,90 L1440,90 L1440,54 
+            L1420,52 L1400,58 L1375,46 L1350,60 L1330,48 L1305,62 L1280,42 L1260,56 L1235,44 L1210,58 L1185,40 L1160,55 L1135,48 L1110,64 L1085,44 L1060,58 L1035,42 L1010,60 L985,45 L960,57 L935,38 L910,60 L885,46 L860,64 L835,42 L810,56 L785,38 L760,62 L735,45 L710,58 L685,41 L660,63 L635,46 L610,60 L585,36 L560,58 L535,44 L510,62 L485,40 L460,57 L435,42 L410,61 L385,37 L360,55 L335,44 L310,62 L285,38 L260,56 L235,42 L210,60 L185,41 L160,59 L135,45 L110,63 L85,44 L60,58 L35,46 L15,60 L0,52 Z" fill="#f4f3ef"/>
+        </svg>
+      </div>
+
+    </section>
+
+    <!-- BOTTOM SHOWCASE SECTION ("THE STUDIO" / "THE WORKS") -->
+    <section class="works-showcase-section" id="works">
+      
+      <div class="showcase-header">
+        <h2 class="showcase-title">THE WORKS</h2>
+        <p class="showcase-subtitle">Featured projects, technical achievements & code craftsmanship</p>
+      </div>
+
+      <!-- POLAROID / TILT CARDS GALLERY -->
+      <div class="polaroid-gallery">
+
+        <!-- CARD 1: SKILL PASSPORT -->
+        <article class="polaroid-card tilt-left" data-project="skill-passport">
+          <div class="masking-tape tape-top-center"></div>
+          <div class="card-photo-frame">
+            <div class="project-mockup-graphic skill-passport-graphic">
+              <div class="mockup-header-bar">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="mockup-url">https://skillpassport.ai</span>
+              </div>
+              <div class="mockup-content">
+                <div class="mockup-badge-live">FEATURED PROJECT</div>
+                <div class="mockup-headline">AI Career Platform & Role Matching</div>
+                <div class="mockup-metrics">
+                  <div class="metric-pill"><span>Match Score:</span> <strong>94.8%</strong></div>
+                  <div class="metric-pill"><span>Tests:</span> <strong>15 Passed</strong></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="polaroid-caption">
+            <h4 class="card-title">Skill Passport</h4>
+            <p class="card-desc">
+              Full-stack platform with student, recruiter, & admin portals. JWT auth, PDF/DOCX NLP resume parsing, weighted role-matching & personalized roadmaps powered by Google Gemini API.
+            </p>
+            <div class="card-tags">
+              <span class="mini-tag">Python</span>
+              <span class="mini-tag">FastAPI</span>
+              <span class="mini-tag">Gemini API</span>
+              <span class="mini-tag">SQLite</span>
+              <span class="mini-tag">Docker</span>
+            </div>
+            <button class="open-modal-btn" data-modal="skillPassportModal">EXPLORE ARCHITECTURE →</button>
+          </div>
+        </article>
+
+        <!-- CARD 2: SMART INDIA HACKATHON -->
+        <article class="polaroid-card tilt-right" data-project="sih-hackathon">
+          <div class="masking-tape tape-top-left"></div>
+          <div class="card-photo-frame">
+            <div class="project-mockup-graphic sih-graphic">
+              <div class="mockup-header-bar">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="mockup-url">SIH-2026 // NATIONWIDE</span>
+              </div>
+              <div class="mockup-content sih-content">
+                <div class="sih-seal">★ SIH 2026 ★</div>
+                <div class="mockup-headline">Smart India Hackathon Qualified</div>
+                <div class="sih-badge">SELECTION QUALIFIER</div>
+              </div>
+            </div>
+          </div>
+          <div class="polaroid-caption">
+            <h4 class="card-title">Smart India Hackathon (SIH)</h4>
+            <p class="card-desc">
+              Qualified Participant. Collaborated with a multidisciplinary team to conceptualize, architect, and pitch an AI-driven solution successfully advancing through rigorous evaluation stages.
+            </p>
+            <div class="card-tags">
+              <span class="mini-tag">System Design</span>
+              <span class="mini-tag">Team Lead</span>
+              <span class="mini-tag">AI Pitch</span>
+              <span class="mini-tag">Solution Arch</span>
+            </div>
+            <button class="open-modal-btn" data-modal="sihModal">VIEW DETAILS →</button>
+          </div>
+        </article>
+
+        <!-- CARD 3: RESUME PARSING & NLP ENGINE -->
+        <article class="polaroid-card tilt-slight" data-project="resume-nlp">
+          <div class="masking-tape tape-top-right"></div>
+          <div class="card-photo-frame">
+            <div class="project-mockup-graphic nlp-graphic">
+              <div class="mockup-header-bar">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="mockup-url">nlp_parser.py</span>
+              </div>
+              <div class="mockup-content code-content">
+                <pre class="code-snippet"><code>def parse_resume(file_bytes):
+    text = PyMuPDF.extract(file_bytes)
+    skills = gemini.extract_skills(text)
+    gap = calculate_weighted_match(
+        target_role="AI Engineer",
+        user_skills=skills
+    )
+    return gap.generate_roadmap()</code></pre>
+              </div>
+            </div>
+          </div>
+          <div class="polaroid-caption">
+            <h4 class="card-title">Resume Parsing & Skill-Gap NLP</h4>
+            <p class="card-desc">
+              Automated extraction engine for PDF & DOCX resumes with skill taxonomy matching, weighted scoring against job descriptions, and local NLP fallback logic.
+            </p>
+            <div class="card-tags">
+              <span class="mini-tag">PyMuPDF</span>
+              <span class="mini-tag">Gemini API</span>
+              <span class="mini-tag">NLP Fallback</span>
+              <span class="mini-tag">FastAPI</span>
+            </div>
+            <button class="open-modal-btn" data-modal="nlpModal">VIEW PIPELINE →</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- CONTACT & FOOTER SECTION -->
+    <footer class="contact-footer-section" id="contact">
+      <div class="footer-stamp-container">
+        <div class="footer-stamp">
+          <div class="stamp-inner">
+            <span class="stamp-star">★</span>
+            <span class="stamp-text">AUTHENTIC DEVELOPER SPEC 2026</span>
+            <span class="stamp-star">★</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h2 class="contact-title">LET'S BUILD TOGETHER</h2>
+        <p class="contact-subtitle">
+          Interested in software development roles, AI/ML engineering, backend APIs, and collaborative projects.
+        </p>
+
+        <div class="contact-details-grid">
+          <!-- EMAIL -->
+          <div class="contact-item">
+            <span class="item-label">EMAIL ADDRESS</span>
+            <div class="item-value-row">
+              <a href="mailto:bhavadeshbayana9@gmail.com" class="item-value">bhavadeshbayana9@gmail.com</a>
+              <button class="copy-btn" data-copy="bhavadeshbayana9@gmail.com" title="Copy Email">
+                <span>📋 Copy</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- PHONE -->
+          <div class="contact-item">
+            <span class="item-label">PHONE / WHATSAPP</span>
+            <div class="item-value-row">
+              <a href="tel:+919515016091" class="item-value">+91 9515016091</a>
+              <button class="copy-btn" data-copy="9515016091" title="Copy Phone">
+                <span>📋 Copy</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- LOCATION -->
+          <div class="contact-item">
+            <span class="item-label">LOCATION</span>
+            <div class="item-value-row">
+              <span class="item-value">Bengaluru, Karnataka, India</span>
+              <span class="loc-badge">IST (UTC +5:30)</span>
+            </div>
+          </div>
+
+          <!-- DEGREE -->
+          <div class="contact-item">
+            <span class="item-label">UNIVERSITY</span>
+            <div class="item-value-row">
+              <span class="item-value">Jain University — B.Tech CSE (AI & ML)</span>
+              <span class="loc-badge">Batch of 2029</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-actions-row">
+          <a href="mailto:bhavadeshbayana9@gmail.com?subject=Opportunity%20Discussion%20with%20Bavadesh" class="primary-action-btn">
+            SEND EMAIL DIRECTLY ✉
+          </a>
+          <button class="secondary-action-btn" id="resumeViewBtn">
+            VIEW RESUME SUMMARY 📄
+          </button>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div class="footer-left">
+          <span>DESIGN INSPIRED BY NEO-EDITORIAL BRUTALISM ✦ 2026</span>
+        </div>
+        <div class="footer-right">
+          <span>BAYANA REDDY VENKATA BAVADESH KUMAR • ALL RIGHTS RESERVED</span>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- MODAL DIALOGS FOR INTERACTIVE PROJECT EXPLORATION -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal-window" id="modalWindow">
+      <button class="modal-close-btn" id="modalCloseBtn">✕</button>
+      <div class="modal-body" id="modalBody">
+        <!-- Content dynamically populated by script.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast-notification" id="toast">Copied to clipboard!</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
