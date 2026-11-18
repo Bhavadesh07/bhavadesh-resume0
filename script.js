@@ -310,4 +310,217 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') closeModal();
   });
 
+  // =========================================================================
+  // GUESTBOOK — Python + FastAPI + SQLAlchemy + SQLite (Live Feature)
+  // =========================================================================
+
+  const API_BASE = window.location.origin;
+  let selectedEmoji = '👋';
+  let backendOnline = false;
+
+  // --- Emoji Picker ---
+  const emojiPicker = document.getElementById('emojiPicker');
+  if (emojiPicker) {
+    emojiPicker.addEventListener('click', (e) => {
+      const btn = e.target.closest('.emoji-btn');
+      if (!btn) return;
+      playSound('click');
+      emojiPicker.querySelectorAll('.emoji-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedEmoji = btn.dataset.emoji;
+    });
+  }
+
+  // --- Character Counter ---
+  const gbMessage = document.getElementById('gbMessage');
+  const charCount = document.getElementById('charCount');
+  if (gbMessage && charCount) {
+    gbMessage.addEventListener('input', () => {
+      charCount.textContent = gbMessage.value.length;
+    });
+  }
+
+  // --- Fetch Stats ---
+  async function fetchGuestbookStats() {
+    try {
+      const res = await fetch(`${API_BASE}/api/stats`);
+      if (!res.ok) throw new Error('API error');
+      const data = await res.json();
+      document.getElementById('statMessages').textContent = data.total_messages;
+      document.getElementById('statVisitors').textContent = data.total_visitors;
+      document.getElementById('statStatus').textContent = 'ONLINE';
+      document.getElementById('statStatus').style.color = '#10b981';
+      backendOnline = true;
+      showOnlineState();
+    } catch (err) {
+      document.getElementById('statMessages').textContent = '—';
+      document.getElementById('statVisitors').textContent = '—';
+      document.getElementById('statStatus').textContent = 'OFFLINE';
+      document.getElementById('statStatus').style.color = '#dc3545';
+      backendOnline = false;
+      showOfflineState();
+    }
+  }
+
+  function showOnlineState() {
+    const offline = document.getElementById('feedOffline');
+    if (offline) offline.style.display = 'none';
+  }
+
+  function showOfflineState() {
+    const offline = document.getElementById('feedOffline');
+    if (offline) offline.style.display = 'flex';
+  }
+
+  // --- Fetch Messages ---
+  async function fetchGuestbookMessages() {
+    try {
+      const res = await fetch(`${API_BASE}/api/guestbook`);
+      if (!res.ok) throw new Error('API error');
+      const messages = await res.json();
+      renderMessages(messages);
+      backendOnline = true;
+      showOnlineState();
+    } catch (err) {
+      backendOnline = false;
+      showOfflineState();
+    }
+  }
+
+  function renderMessages(messages) {
+    const feed = document.getElementById('guestbookFeed');
+    const empty = document.getElementById('feedEmpty');
+    if (!feed) return;
+
+    // Remove all existing message cards
+    feed.querySelectorAll('.gb-message-card').forEach(c => c.remove());
+
+    if (messages.length === 0) {
+      if (empty) empty.style.display = 'block';
+      return;
+    }
+    if (empty) empty.style.display = 'none';
+
+    messages.forEach(msg => {
+      const card = document.createElement('div');
+      card.className = 'gb-message-card';
+
+      const timeAgo = formatTimeAgo(msg.created_at);
+
+      card.innerHTML = `
+        <div class="gb-msg-header">
+          <span class="gb-msg-emoji">${escapeHtml(msg.emoji)}</span>
+          <span class="gb-msg-name">${escapeHtml(msg.name)}</span>
+          <span class="gb-msg-role">${escapeHtml(msg.role)}</span>
+        </div>
+        <p class="gb-msg-body">${escapeHtml(msg.message)}</p>
+        <span class="gb-msg-time">${timeAgo}</span>
+      `;
+      feed.appendChild(card);
+    });
+  }
+
+  function escapeHtml(text) {
+    const d = document.createElement('div');
+    d.textContent = text || '';
+    return d.innerHTML;
+  }
+
+  function formatTimeAgo(isoStr) {
+    if (!isoStr) return '';
+    try {
+      const date = new Date(isoStr);
+      const now = new Date();
+      const diff = Math.floor((now - date) / 1000);
+      if (diff < 60) return 'just now';
+      if (diff < 3600) return `${Math.floor(diff / 60)}m ago`;
+      if (diff < 86400) return `${Math.floor(diff / 3600)}h ago`;
+      if (diff < 604800) return `${Math.floor(diff / 86400)}d ago`;
+      return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    } catch (e) {
+      return '';
+    }
+  }
+
+  // --- Submit Message ---
+  const guestbookForm = document.getElementById('guestbookForm');
+  if (guestbookForm) {
+    guestbookForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = document.getElementById('gbSubmitBtn');
+      const errorEl = document.getElementById('gbFormError');
+      const btnText = submitBtn.querySelector('.btn-text');
+      const btnLoading = submitBtn.querySelector('.btn-loading');
+
+      const name = document.getElementById('gbName').value.trim();
+      const role = document.getElementById('gbRole').value.trim() || 'Visitor';
+      const message = document.getElementById('gbMessage').value.trim();
+
+      if (!name || !message) {
+        errorEl.textContent = 'Name and message are required.';
+        errorEl.style.display = 'block';
+        return;
+      }
+
+      if (!backendOnline) {
+        errorEl.textContent = 'Backend is offline. Run: python3 server.py';
+        errorEl.style.display = 'block';
+        return;
+      }
+
+      errorEl.style.display = 'none';
+      submitBtn.disabled = true;
+      btnText.style.display = 'none';
+      btnLoading.style.display = 'inline';
+
+      try {
+        const res = await fetch(`${API_BASE}/api/guestbook`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, role, message, emoji: selectedEmoji }),
+        });
+
+        if (!res.ok) {
+          const errData = await res.json().catch(() => ({}));
+          throw new Error(errData.detail || 'Failed to submit');
+        }
+
+        playSound('copy');
+
+        // Reset form
+        guestbookForm.reset();
+        if (charCount) charCount.textContent = '0';
+        emojiPicker.querySelectorAll('.emoji-btn').forEach(b => b.classList.remove('active'));
+        emojiPicker.querySelector('[data-emoji="👋"]').classList.add('active');
+        selectedEmoji = '👋';
+
+        // Refresh data
+        await Promise.all([fetchGuestbookMessages(), fetchGuestbookStats()]);
+
+      } catch (err) {
+        errorEl.textContent = err.message || 'Something went wrong.';
+        errorEl.style.display = 'block';
+      } finally {
+        submitBtn.disabled = false;
+        btnText.style.display = 'inline';
+        btnLoading.style.display = 'none';
+      }
+    });
+  }
+
+  // --- Refresh Button ---
+  const feedRefreshBtn = document.getElementById('feedRefreshBtn');
+  if (feedRefreshBtn) {
+    feedRefreshBtn.addEventListener('click', () => {
+      playSound('click');
+      fetchGuestbookMessages();
+      fetchGuestbookStats();
+    });
+  }
+
+  // --- Initial Load (Graceful if backend is offline) ---
+  fetchGuestbookStats();
+  fetchGuestbookMessages();
+
+
 });
