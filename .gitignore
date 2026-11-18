@@ -1,3 +1,10 @@
 .DS_Store
 *.log
 Thumbs.db
+portfolio.db
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.env
