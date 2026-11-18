@@ -420,6 +420,141 @@
       </div>
     </section>
 
+    <!-- ====================================================================
+         LIVE GUESTBOOK SECTION — Python + FastAPI + SQLAlchemy + SQLite
+         ==================================================================== -->
+    <section class="guestbook-section" id="guestbook">
+
+      <div class="guestbook-header">
+        <h2 class="guestbook-title">LIVE GUESTBOOK</h2>
+        <p class="guestbook-subtitle">Leave a message — powered by a real Python backend</p>
+        <div class="guestbook-tech-badge">
+          <span class="tech-dot"></span>
+          <span>Python</span> · <span>FastAPI</span> · <span>SQLAlchemy</span> · <span>SQLite</span>
+        </div>
+      </div>
+
+      <!-- STATS BAR -->
+      <div class="guestbook-stats-bar">
+        <div class="stat-chip">
+          <span class="stat-icon">💬</span>
+          <span class="stat-label">MESSAGES</span>
+          <span class="stat-value" id="statMessages">—</span>
+        </div>
+        <div class="stat-chip">
+          <span class="stat-icon">👁</span>
+          <span class="stat-label">VISITORS</span>
+          <span class="stat-value" id="statVisitors">—</span>
+        </div>
+        <div class="stat-chip">
+          <span class="stat-icon">⚡</span>
+          <span class="stat-label">API STATUS</span>
+          <span class="stat-value" id="statStatus">CHECKING…</span>
+        </div>
+      </div>
+
+      <!-- FORM + FEED LAYOUT -->
+      <div class="guestbook-layout">
+
+        <!-- LEFT: SUBMIT FORM -->
+        <div class="guestbook-form-wrapper">
+          <form class="guestbook-form" id="guestbookForm">
+            <div class="form-group">
+              <label class="form-label" for="gbName">YOUR NAME *</label>
+              <input class="form-input" type="text" id="gbName" placeholder="e.g. Ada Lovelace" maxlength="100" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="gbRole">YOUR ROLE</label>
+              <input class="form-input" type="text" id="gbRole" placeholder="e.g. Developer, Student, Recruiter" maxlength="100">
+            </div>
+            <div class="form-group">
+              <label class="form-label">PICK AN EMOJI</label>
+              <div class="emoji-picker" id="emojiPicker">
+                <button type="button" class="emoji-btn active" data-emoji="👋">👋</button>
+                <button type="button" class="emoji-btn" data-emoji="🚀">🚀</button>
+                <button type="button" class="emoji-btn" data-emoji="🔥">🔥</button>
+                <button type="button" class="emoji-btn" data-emoji="💡">💡</button>
+                <button type="button" class="emoji-btn" data-emoji="⭐">⭐</button>
+                <button type="button" class="emoji-btn" data-emoji="🤝">🤝</button>
+                <button type="button" class="emoji-btn" data-emoji="💻">💻</button>
+                <button type="button" class="emoji-btn" data-emoji="🎯">🎯</button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="gbMessage">YOUR MESSAGE *</label>
+              <textarea class="form-input form-textarea" id="gbMessage" placeholder="Say hello, share feedback, or leave encouragement…" maxlength="500" required></textarea>
+              <span class="char-counter"><span id="charCount">0</span>/500</span>
+            </div>
+            <button type="submit" class="guestbook-submit-btn" id="gbSubmitBtn">
+              <span class="btn-text">SIGN THE GUESTBOOK ✍</span>
+              <span class="btn-loading" style="display:none">SENDING…</span>
+            </button>
+            <p class="form-error" id="gbFormError" style="display:none"></p>
+          </form>
+        </div>
+
+        <!-- RIGHT: MESSAGE FEED -->
+        <div class="guestbook-feed-wrapper">
+          <div class="feed-header">
+            <span class="feed-title">RECENT MESSAGES</span>
+            <button class="feed-refresh-btn" id="feedRefreshBtn" title="Refresh">↻</button>
+          </div>
+          <div class="guestbook-feed" id="guestbookFeed">
+            <!-- Messages loaded dynamically -->
+            <div class="feed-empty" id="feedEmpty">
+              <p class="feed-empty-icon">📭</p>
+              <p class="feed-empty-text">No messages yet — be the first to sign!</p>
+            </div>
+          </div>
+          <div class="feed-offline-notice" id="feedOffline" style="display:none">
+            <span class="offline-dot"></span>
+            <span>Backend offline — start the server to enable live guestbook</span>
+            <code>python3 server.py</code>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- HOW IT WORKS (Architecture snippet) -->
+      <div class="guestbook-arch-box">
+        <div class="arch-header">
+          <span class="arch-label">⚙ HOW THIS WORKS</span>
+        </div>
+        <div class="arch-diagram">
+          <div class="arch-node">
+            <span class="arch-icon">🌐</span>
+            <span class="arch-name">Frontend</span>
+            <span class="arch-tech">HTML / JS</span>
+          </div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-node">
+            <span class="arch-icon">⚡</span>
+            <span class="arch-name">FastAPI</span>
+            <span class="arch-tech">Python 3</span>
+          </div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-node">
+            <span class="arch-icon">🗄</span>
+            <span class="arch-name">SQLAlchemy</span>
+            <span class="arch-tech">ORM Layer</span>
+          </div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-node">
+            <span class="arch-icon">💾</span>
+            <span class="arch-name">SQLite</span>
+            <span class="arch-tech">portfolio.db</span>
+          </div>
+        </div>
+        <div class="arch-endpoints">
+          <code>GET /api/guestbook</code>
+          <code>POST /api/guestbook</code>
+          <code>GET /api/stats</code>
+          <code>GET /docs</code>
+        </div>
+      </div>
+
+    </section>
+
     <!-- CONTACT & FOOTER SECTION -->
     <footer class="contact-footer-section" id="contact">
       <div class="footer-stamp-container">
